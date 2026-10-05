@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Criação de reservas de hospedagem do PataSegura">
+  <title>Criar Reserva · PataSegura</title>
+  <link rel="stylesheet" href="reserva.css">
+</head>
+<body>
+
+  <div class="app">
+    
+    <!-- BARRA LATERAL MINIMALISTA -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">🐾</div>
+        <span>PataSegura</span>
+      </div>
+      <nav class="nav">
+  <a href="#">
+    <span class="nav-icon">📊</span> Painel Geral
+  </a>
+  <!-- Aponta para a Semana 1 -->
+  <a href="../Semana-01\RF-001-cadastro-cliente/index.html" id="nav-cadastro">
+    <span class="nav-icon">➕</span> Novo Cadastro
+  </a>
+  <!-- Aponta para a Semana 4 -->
+  <a href="../semana-04\RF-004-consultar-cliente/index.html" id="nav-consulta">
+    <span class="nav-icon">🔍</span> Consultar Cliente
+  </a>
+  <!-- Aponta para a Semana 5 -->
+  <a href="../Semana-05/index.html" id="nav-reserva">
+    <span class="nav-icon">🏨</span> Criar Reserva
+  </a>
+</nav>
+      <div class="side-bottom">
+        <div class="user">
+          <div class="avatar">RC</div>
+          <div>
+            <strong>Recepcionista</strong>
+            <small>Painel Ativo</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL (LIMPO E FOCADO) -->
+    <main class="main" style="padding: 40px;">
+      <div class="content" style="max-width: 800px; padding: 0; margin: 0 auto;">
+        
+        <div class="heading" style="margin-bottom: 30px;">
+          <div>
+            <h1 style="font-size: 28px; margin: 0 0 6px 0;">Criar Reserva de Hospedagem</h1>
+            <p style="margin: 0;">Aloque vagas em canis ou suítes VIP controlando as datas de estadia do hóspede.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <form id="reservaForm" novalidate>
+            <div class="card-body" style="padding: 35px;">
+              
+              <h3 style="margin: 0 0 20px 0; font-size: 15px; color: var(--blue); text-transform: uppercase; letter-spacing: 0.5px;">1. Identificação do Hóspede</h3>
+              
+              <div class="form-grid" style="margin-bottom: 35px;">
+                <div class="field" id="tutorField">
+                  <label for="selectTutor">Tutor / Cliente <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <select id="selectTutor" class="select-field" required>
+                      <option value="">Selecione um cliente...</option>
+                      <option value="joao">João Silva</option>
+                      <option value="isabela">Isabela Rezende</option>
+                      <option value="mateus">Mateus Alcântara</option>
+                    </select>
+                  </div>
+                  <small class="error">Selecione um tutor válido.</small>
+                </div>
+
+                <div class="field" id="petField">
+                  <label for="selectPet">PET do Cliente <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <select id="selectPet" class="select-field" disabled required>
+                      <option value="">Selecione o tutor primeiro...</option>
+                    </select>
+                  </div>
+                  <small class="error">Selecione o animal associado.</small>
+                </div>
+              </div>
+
+              <hr style="border: 0; border-top: 1px solid var(--line); margin: 0 0 30px 0;">
+
+              <h3 style="margin: 0 0 20px 0; font-size: 15px; color: var(--orange); text-transform: uppercase; letter-spacing: 0.5px;">2. Detalhes da Estadia</h3>
+
+              <div class="form-grid">
+                <div class="field wide" id="acomodacaoField">
+                  <label for="selectAcomodacao">Tipo de Acomodação <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <select id="selectAcomodacao" class="select-field" required>
+                      <option value="">Escolha o espaço...</option>
+                      <option value="compacto">📦 Canil Individual Compacto</option>
+                      <option value="padrao">🐩 Canil Espaço Padrão</option>
+                      <option value="vip">👑 Suíte VIP com Monitoramento</option>
+                    </select>
+                  </div>
+                  <small class="error">Selecione uma acomodação.</small>
+                </div>
+
+                <div class="field" id="checkinField">
+                  <label for="inputCheckin">Data de Check-in <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="date" id="inputCheckin" required>
+                  </div>
+                  <small class="error">Insira uma data de entrada válida.</small>
+                </div>
+
+                <div class="field" id="checkoutField">
+                  <label for="inputCheckout">Data de Check-out <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="date" id="inputCheckout" required>
+                  </div>
+                  <small class="error">O Check-out deve ser posterior ao Check-in (RN-02).</small>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card-footer" style="padding: 20px 35px; background: #fafbfe;">
+              <span class="footer-note">Garantia ACID PostgreSQL ativa</span>
+              <div class="buttons">
+                <button type="button" class="btn secondary" id="btnCancelar">Limpar</button>
+                <button type="submit" class="btn primary" id="btnReservar">
+                  <span class="spinner" id="btnSpinner"></span>
+                  <span id="btnText">Confirmar Reserva</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Componentes de Feedback -->
+  <div class="toast error-toast" id="reservaToast">
+    <div style="display: flex; gap: 11px;">
+      <div style="font-size: 20px;">⚠️</div>
+      <div>
+        <strong id="toastTitle">Erro na Reserva</strong>
+        <span id="toastMessage">Sem vagas disponíveis para este espaço no período selecionado (RN-03).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="reservaModal">
+    <div class="modal">
+      <div class="success-mark">✓</div>
+      <h3>Reserva Efetuada!</h3>
+      <p>A vaga no hotel pet foi alocada e confirmada com sucesso.</p>
+    </div>
+  </div>
+
+  <script src="reserva.js"></script>
+</body>
+</html>

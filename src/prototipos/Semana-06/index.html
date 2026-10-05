@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Consulta de reservas do PataSegura Hotel Pet">
+  <title>Consultar Reservas · PataSegura</title>
+  <!-- Link do CSS específico e isolado desta tela -->
+  <link rel="stylesheet" href="consulta-reserva.css">
+</head>
+<body>
+
+  <div class="app">
+    
+    <!-- BARRA LATERAL MINIMALISTA -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">🐾</div>
+        <span>PataSegura</span>
+      </div>
+      <nav class="nav">
+  <a href="#">
+    <span class="nav-icon">📊</span> Painel Geral
+  </a>
+  <!-- Aponta para a Semana 1 -->
+  <a href="../Semana-01\RF-001-cadastro-cliente/index.html" id="nav-cadastro">
+    <span class="nav-icon">➕</span> Novo Cadastro
+  </a>
+  <!-- Aponta para a Semana 4 -->
+  <a href="../semana-04\RF-004-consultar-cliente/index.html" id="nav-consulta">
+    <span class="nav-icon">🔍</span> Consultar Cliente
+  </a>
+  <!-- Aponta para a Semana 5 -->
+  <a href="../Semana-05/index.html" id="nav-reserva">
+    <span class="nav-icon">🏨</span> Criar Reserva
+  </a>
+</nav>
+
+      <div class="side-bottom">
+        <div class="user">
+          <div class="avatar">RC</div>
+          <div>
+            <strong>Recepcionista</strong>
+            <small>Painel Ativo</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL (LIMPO E FOCADO) -->
+    <main class="main" style="padding: 40px;">
+      <div class="content" style="max-width: 1000px; padding: 0; margin: 0 auto;">
+        
+        <!-- Cabeçalho Limpo -->
+        <div class="heading" style="margin-bottom: 30px;">
+          <div>
+            <h1 style="font-size: 28px; margin: 0 0 6px 0;">Consultar Reservas de Hospedagem</h1>
+            <p style="margin: 0;">Localize períodos de estadia e controle o mapa de vagas buscando pelo tutor ou pelo PET.</p>
+          </div>
+        </div>
+
+        <!-- Barra de Busca -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-body" style="padding: 25px 30px;">
+            <form id="searchForm" style="display: flex; gap: 15px; align-items: flex-end;">
+              <div class="field wide" style="margin: 0; flex: 1;">
+                <label for="searchTxt">Termo de busca (Tutor ou Nome do PET)</label>
+                <div class="input-wrap">
+                  <input type="text" id="searchTxt" placeholder="Digite o nome do tutor ou do animal para pesquisar...">
+                </div>
+              </div>
+              <button type="submit" class="btn primary" id="btnBuscar" style="height: 44px; padding: 0 30px;">
+                <span class="spinner" id="btnSpinner"></span>
+                <span id="btnText">Buscar</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Tabela de Registros -->
+        <div class="card">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tutor / Cliente</th>
+                  <th>Animal (PET)</th>
+                  <th>Acomodação</th>
+                  <th>Período Reservado</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Toast para Avisos do Sistema -->
+  <div class="toast error-toast" id="consultaToast">
+    <div style="display: flex; gap: 11px;">
+      <div style="font-size: 20px;">⚠️</div>
+      <div>
+        <strong id="toastTitle">Erro de Rede</strong>
+        <span id="toastMessage">Falha ao varrer as tabelas relacionais do banco de dados.</span>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="consulta-reserva.js"></script>
+</body>
+</html>

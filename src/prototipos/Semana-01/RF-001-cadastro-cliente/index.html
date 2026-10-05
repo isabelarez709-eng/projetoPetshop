@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cadastro de clientes e pets do PataSegura Hotel Pet">
+  <title>Novo Cadastro · PataSegura</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    
+    <!-- BARRA LATERAL MINIMALISTA -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">🐾</div>
+        <span>PataSegura</span>
+      </div>
+      <nav class="nav">
+  <a href="#">
+    <span class="nav-icon">📊</span> Painel Geral
+  </a>
+  <!-- Aponta para a Semana 1 -->
+  <a href="../Semana-01\RF-001-cadastro-cliente/index.html" id="nav-cadastro">
+    <span class="nav-icon">➕</span> Novo Cadastro
+  </a>
+  <!-- Aponta para a Semana 4 -->
+  <a href="../semana-04\RF-004-consultar-cliente/index.html" id="nav-consulta">
+    <span class="nav-icon">🔍</span> Consultar Cliente
+  </a>
+  <!-- Aponta para a Semana 5 -->
+  <a href="../Semana-05/index.html" id="nav-reserva">
+    <span class="nav-icon">🏨</span> Criar Reserva
+  </a>
+</nav>
+      <div class="side-bottom">
+        <div class="user">
+          <div class="avatar">RC</div>
+          <div>
+            <strong>Recepcionista</strong>
+            <small>Painel Ativo</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL (DIRETO E FOCADO) -->
+    <main class="main" style="padding: 40px;">
+      <div class="content" style="max-width: 800px; padding: 0; margin: 0 auto;">
+        
+        <!-- Cabeçalho Integrado e Direto -->
+        <div class="heading" style="margin-bottom: 30px;">
+          <div>
+            <h1 style="font-size: 28px; margin: 0 0 6px 0;">Cadastrar Cliente e PET</h1>
+            <p style="margin: 0;">Insira as informações do tutor e do animal para abrir um novo registro.</p>
+          </div>
+        </div>
+
+        <!-- Formulário Unificado em Bloco Único -->
+        <div class="card">
+          <form id="cadastroForm" novalidate>
+            <div class="card-body" style="padding: 35px;">
+              
+              <!-- Seção: Tutor -->
+              <h3 style="margin: 0 0 20px 0; font-size: 15px; color: var(--blue); text-transform: uppercase; letter-spacing: 0.5px;">1. Dados do Tutor</h3>
+              
+              <div class="form-grid" style="margin-bottom: 35px;">
+                <div class="field wide" id="nomeClienteField">
+                  <label for="nomeCliente">Nome Completo <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="text" id="nomeCliente" placeholder="Ex: João Silva">
+                    <span class="input-status">✓</span>
+                  </div>
+                  <small class="error">O nome não pode estar vazio (RN-05).</small>
+                </div>
+
+                <div class="field" id="emailClienteField">
+                  <label for="emailCliente">E-mail <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="email" id="emailCliente" placeholder="joao@email.com">
+                    <span class="input-status">✓</span>
+                  </div>
+                  <small class="error">E-mail inválido ou já cadastrado (RN-01).</small>
+                </div>
+
+                <div class="field" id="cpfClienteField">
+                  <label for="cpfCliente">CPF <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="text" id="cpfCliente" placeholder="123.456.789-01" maxlength="14">
+                    <span class="input-status">✓</span>
+                  </div>
+                  <small class="error">CPF inválido (RN-02).</small>
+                </div>
+
+                <div class="field" id="telClienteField">
+                  <label for="telCliente">Telefone <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="text" id="telCliente" placeholder="(11) 99999-9999" maxlength="15">
+                    <span class="input-status">✓</span>
+                  </div>
+                  <small class="error">O telefone deve conter 11 dígitos (RN-04).</small>
+                </div>
+
+                <div class="field" id="nascClienteField">
+                  <label for="nascCliente">Data de Nascimento <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="date" id="nascCliente">
+                    <span class="input-status">✓</span>
+                  </div>
+                  <small class="error">A data não pode ser futura (RN-03).</small>
+                </div>
+              </div>
+
+              <!-- Linha Divisória Suave -->
+              <hr style="border: 0; border-top: 1px solid var(--line); margin: 0 0 30px 0;">
+
+              <!-- Seção: PET -->
+              <h3 style="margin: 0 0 20px 0; font-size: 15px; color: var(--orange); text-transform: uppercase; letter-spacing: 0.5px;">2. Dados do PET</h3>
+              
+              <div class="form-grid">
+                <div class="field" id="nomePetField">
+                  <label for="nomePet">Nome do PET <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="text" id="nomePet" placeholder="Ex: Thor">
+                    <span class="input-status">✓</span>
+                  </div>
+                  <small class="error">O nome do animal é obrigatório.</small>
+                </div>
+
+                <div class="field" id="racaPetField">
+                  <label for="racaPet">Raça <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="text" id="racaPet" placeholder="Ex: Golden Retriever">
+                    <span class="input-status">✓</span>
+                  </div>
+                  <small class="error">A raça é obrigatória.</small>
+                </div>
+
+                <div class="field" id="idadePetField">
+                  <label for="idadePet">Idade (anos) <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="number" id="idadePet" placeholder="Ex: 3" min="0">
+                    <span class="input-status">✓</span>
+                  </div>
+                  <small class="error">Insira uma idade válida.</small>
+                </div>
+
+                <div class="field" id="pesoPetField">
+                  <label for="pesoPet">Peso (kg) <span class="required">*</span></label>
+                  <div class="input-wrap">
+                    <input type="number" id="pesoPet" placeholder="Ex: 14.2" step="0.1" min="0">
+                    <span class="input-status">✓</span>
+                  </div>
+                  <small class="error">Insira um peso válido.</small>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Rodapé Limpo -->
+            <div class="card-footer" style="padding: 20px 35px; background: #fafbfe;">
+              <span class="footer-note">Garantia de consistência PostgreSQL ativa (ADR-001)</span>
+              <div class="buttons">
+                <button type="button" class="btn secondary" id="btnCancelar">Cancelar</button>
+                <button type="submit" class="btn primary" id="btnSalvar">
+                  <span class="spinner" id="btnSpinner"></span>
+                  <span id="btnText">Salvar Registro</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Componentes Flutuantes de Feedback -->
+  <div class="toast error-toast" id="cadastroToast">
+    <div style="display: flex; gap: 11px;">
+      <div style="font-size: 20px;">⚠️</div>
+      <div>
+        <strong id="toastTitle">Erro de Cadastro</strong>
+        <span id="toastMessage">Verifique as informações do formulário.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="cadastroModal">
+    <div class="modal">
+      <div class="success-mark">✓</div>
+      <h3>Hóspede Registrado!</h3>
+      <p>O cliente e seu respectivo PET foram salvos com sucesso na base de dados.</p>
+    </div>
+  </div>
+
+  <script src="cadastro.js"></script>
+</body>
+</html>

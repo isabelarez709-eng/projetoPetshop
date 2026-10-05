@@ -1,0 +1,359 @@
+/* --- Variáveis de Estilo Herdadas do Layout Antigo --- */
+:root {
+  --ink: #17233c;
+  --muted: #71809d;
+  --line: #e3e8f2;
+  --blue: #3458d4;
+  --blue-dark: #2545b1;
+  --blue-soft: #eef2ff;
+  --orange: #f59a5c;
+  --orange-soft: #fff3e9;
+  --green: #1a936f;
+  --green-soft: #e7f7f1;
+  --red: #c94a58;
+  --red-soft: #fff0f2;
+  --bg: #f7f9fc;
+  --white: #fff;
+  --shadow: 0 20px 45px rgba(30,48,91,.08);
+}
+
+/* --- Configurações Globais --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* --- Container e Centralização do Painel de Login --- */
+.login-wrapper {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* --- Card Base --- */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  width: 100%;
+}
+
+.login-card {
+  max-width: 440px; /* Largura perfeita e compacta para telas de login */
+}
+
+/* --- Cabeçalho da Marca --- */
+.card-header {
+  padding: 24px 29px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.login-header {
+  text-align: center;
+}
+
+.login-header h2 {
+  font-size: 22px;
+  margin: 16px 0 4px;
+  letter-spacing: -.5px;
+}
+
+.login-header p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+  font-size: 20px;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  background: var(--blue);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  font-size: 18px;
+  box-shadow: 0 7px 13px rgba(52,88,212,.26);
+}
+
+/* --- Estrutura do Formulário e Inputs --- */
+.card-body {
+  padding: 26px 29px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 22px;
+}
+
+.field.wide {
+  grid-column: span 2;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 750;
+  display: block;
+  margin: 0 0 7px;
+}
+
+.required {
+  color: #e26b72;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.field input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #d8dfeb;
+  border-radius: 8px;
+  color: var(--ink);
+  padding: 0 13px;
+  outline: none;
+  background: var(--white);
+  transition: .15s;
+}
+
+.field input::placeholder {
+  color: #b0b8c9;
+}
+
+.field input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(52,88,212,.11);
+}
+
+/* --- Estados de Validação do Layout --- */
+.field input.valid {
+  border-color: var(--green);
+  padding-right: 37px;
+  background: linear-gradient(90deg, #fff 0, #fff 85%, #f2fcf8 100%);
+}
+
+.field input.invalid {
+  border-color: var(--red);
+  background: var(--red-soft);
+}
+
+.input-status {
+  position: absolute;
+  right: 14px;
+  top: 11px;
+  font-size: 16px;
+  display: none;
+  font-weight: 700;
+}
+
+.field.has-success .input-status {
+  display: block;
+  color: var(--green);
+}
+
+/* --- Mensagens de Erro por Campo --- */
+.error {
+  color: var(--red);
+  font-size: 12px;
+  margin: 6px 0 0;
+  display: none;
+}
+
+.field.has-error .error {
+  display: block;
+}
+
+/* --- Links Extras --- */
+.login-meta {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.forgot-password {
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.forgot-password:hover {
+  color: var(--blue);
+}
+
+/* --- Rodapé e Botões --- */
+.card-footer {
+  border-top: 1px solid var(--line);
+  padding: 18px 29px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: #fafbfe;
+}
+
+.footer-note {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 11px 24px;
+  font-weight: 750;
+  border: 1px solid transparent;
+  transition: .15s;
+}
+
+.btn.primary {
+  background: var(--blue);
+  color: var(--white);
+  box-shadow: 0 7px 14px rgba(52,88,212,.18);
+}
+
+.btn.primary:hover {
+  background: var(--blue-dark);
+}
+
+.btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* --- Spinner de Carregamento --- */
+.spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,.45);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  vertical-align: -3px;
+  margin-right: 7px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Toasts (Alertas Flutuantes) --- */
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  background: var(--white);
+  border-left: 4px solid var(--green);
+  box-shadow: var(--shadow);
+  padding: 15px 18px;
+  border-radius: 10px;
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  max-width: 370px;
+  transform: translateY(150%);
+  transition: .3s;
+  z-index: 4;
+}
+
+.toast.show {
+  transform: translateY(0);
+}
+
+.toast strong {
+  display: block;
+  font-size: 13px;
+}
+
+.toast span {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.toast.error-toast {
+  border-color: var(--red);
+}
+
+/* --- Modais --- */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(19,29,53,.38);
+  z-index: 3;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal-backdrop.show {
+  display: grid;
+}
+
+.modal {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  max-width: 390px;
+  box-shadow: 0 25px 80px rgba(19,29,53,.22);
+}
+
+.success-mark {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 26px;
+}
+
+.modal h3 {
+  margin: 0 0 6px;
+}
+
+.modal p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 21px;
+}

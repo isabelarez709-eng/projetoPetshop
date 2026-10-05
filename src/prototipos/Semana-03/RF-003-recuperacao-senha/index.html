@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recuperação de senha de usuários do PataSegura">
+  <title>Recuperar Senha · PataSegura</title>
+  <!-- Linkado ao arquivo CSS unificado do sistema -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <div class="card login-card">
+      
+      <!-- Cabeçalho (Tela 1 do Mockup) -->
+      <div class="card-header login-header">
+        <div class="brand">
+          <div class="brand-mark">🐾</div>
+          <span>PataSegura</span>
+        </div>
+        <h2>Recupere sua senha</h2>
+        <p>Digite seu e-mail para receber as instruções de recuperação.</p>
+      </div>
+
+      <!-- Formulário de Recuperação -->
+      <form id="recuperarForm" novalidate>
+        <div class="card-body">
+          <div class="form-grid">
+            
+            <!-- Campo de Email com tratamentos RN-01, RN-02 e fluxos alternativos -->
+            <div class="field wide" id="emailField">
+              <label for="email">E-mail <span class="required">*</span></label>
+              <div class="input-wrap">
+                <input type="email" id="email" placeholder="usuario@email.com" required>
+                <span class="input-status">✓</span>
+              </div>
+              <small class="error" id="emailError">Mensagem de validação do sistema.</small>
+            </div>
+
+          </div>
+
+          <!-- Opção de retorno manual (RN-05) -->
+          <!-- Opção de retorno manual (RN-05) -->
+        <div class="login-meta" style="justify-content: center; margin-top: 20px;">
+            <a href="../Semana-02\RF-002-login-cliente/index.html" class="forgot-password" id="lnkVoltar" style="font-size: 13px; font-weight: 750;">Voltar para o login</a>
+        </div>
+
+        <!-- Rodapé do Card com Ação Principal -->
+        <div class="card-footer">
+          <span class="footer-note">Comunicação via HTTPS (RNF-02)</span>
+          <div class="buttons">
+            <button type="submit" class="btn primary" id="btnContinuar">
+              <span class="spinner" id="btnSpinner"></span>
+              <span id="btnText">Continuar</span>
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Modal Interativo: Sucesso (Tela 2 do Mockup) -->
+  <div class="modal-backdrop" id="modalSucesso">
+    <div class="modal">
+      <div class="success-mark">✓</div>
+      <h3>Verifique seu e-mail</h3>
+      <p>Enviamos as instruções para recuperação da sua senha.</p>
+      <button type="button" class="btn primary" id="btnSucessoVoltar" style="width: 100%;">Voltar para o login</button>
+    </div>
+  </div>
+
+  <!-- Modal Interativo: E-mail não encontrado (Tela 3 do Mockup) -->
+  <div class="modal-backdrop" id="modalNaoEncontrado">
+    <div class="modal">
+      <div class="success-mark" style="background: var(--red-soft); color: var(--red);">✕</div>
+      <h3>E-mail não encontrado</h3>
+      <p>Não encontramos uma conta associada ao e-mail informado.</p>
+      <button type="button" class="btn secondary" id="btnTentarNovamente" style="width: 100%;">Tentar novamente</button>
+    </div>
+  </div>
+  <link rel="stylesheet" href="recuperar-senha.css">
+  <script src="recuperar-senha.js"></script>
+</body>
+</html>

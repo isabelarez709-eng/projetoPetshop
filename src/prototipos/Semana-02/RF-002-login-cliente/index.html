@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Autenticação de usuários no sistema PataSegura">
+  <title>Login · PataSegura</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <div class="card login-card">
+      
+      <!-- Cabeçalho do Card (Baseado na sua marca) -->
+      <div class="card-header login-header">
+        <div class="brand">
+          <div class="brand-mark">🐾</div>
+          <span>PataSegura</span>
+        </div>
+        <h2>Acessar o Sistema</h2>
+        <p>Informe suas credenciais para gerenciar o Pet Shop</p>
+      </div>
+
+      <!-- Formulário de Login (Fluxo Principal) -->
+      <form id="loginForm" novalidate>
+        <div class="card-body">
+          <div class="form-grid">
+            
+            <!-- Campo de Email (RN-01) -->
+            <div class="field wide" id="emailField">
+              <label for="email">E-mail institucional <span class="required">*</span></label>
+              <div class="input-wrap">
+                <input type="email" id="email" placeholder="nome@email.com" required>
+                <span class="input-status">✓</span>
+              </div>
+              <small class="error" id="emailError">O e-mail digitado não está cadastrado no sistema.</small>
+            </div>
+
+            <!-- Campo de Senha (RN-02) -->
+            <div class="field wide" id="passwordField">
+              <label for="password">Senha de acesso <span class="required">*</span></label>
+              <div class="input-wrap">
+                <input type="password" id="password" placeholder="••••••••" required>
+                <span class="input-status">✓</span>
+              </div>
+              <small class="error" id="passwordError">A senha informada está incorreta.</small>
+            </div>
+
+          </div>
+
+          <!-- Links de auxílio rápidos -->
+          <div class="login-meta">
+            <a href="../Semana-03\RF-003-recuperacao-senha/index.html" class="forgot-password">Esqueceu sua senha?</a>
+
+          </div>
+        </div>
+
+        <!-- Rodapé do Card com Botão de Ação Principal -->
+        <div class="card-footer">
+          <span class="footer-note">Ambiente seguro via HTTPS (RNF-02)</span>
+          <div class="buttons">
+            <button type="submit" class="btn primary" id="btnSubmit">
+              <span class="spinner" id="btnSpinner"></span>
+              <span id="btnText">Entrar</span>
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Toast de Alerta para Falhas Graves / Erros do Sistema (Fluxo Alternativo A3) -->
+  <div class="toast error-toast" id="errorToast">
+    <div style="display: flex; gap: 11px;">
+      <div style="font-size: 20px;">⚠️</div>
+      <div>
+        <strong>Falha na Conexão</strong>
+        <span id="toastMessage">Não foi possível estabelecer contato com o banco de dados. Tente novamente.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Sucesso (Fluxo Principal / Pós-Condição de Sucesso) -->
+  <div class="modal-backdrop" id="successModal">
+    <div class="modal">
+      <div class="success-mark">✓</div>
+      <h3>Autenticado!</h3>
+      <p>Login realizado com sucesso. Redirecionando para o painel administrativo...</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
